@@ -17,6 +17,7 @@ namespace Tiltify
         /// The socket
         /// </summary>
         private readonly WebSocketClient _socket;
+        public bool IsConnected => _socket.IsConnected;
         /// <summary>
         /// The previous requests
         /// </summary>

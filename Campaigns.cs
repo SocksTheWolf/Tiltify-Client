@@ -9,9 +9,9 @@ namespace Tiltify
         {
         }
 
-        public Task<GetCampaignDonationsResponse> GetCampaignDonations(int campaignId)
+        public Task<GetCampaignDonationsResponse> GetCampaignDonations(int campaignId, ApiAccessLevel access = ApiAccessLevel.Public)
         {
-            return TiltifyGetGenericAsync<GetCampaignDonationsResponse>($"/campaigns/{campaignId}/donations", ApiVersion.V3);
+            return TiltifyGetGenericAsync<GetCampaignDonationsResponse>($"/campaigns/{campaignId}/donations", GetApiVersion(), null, null, access);
         }
     }
 }

@@ -35,7 +35,7 @@ namespace Tiltify
         }
 
         public async Task<KeyValuePair<int, string>> GeneralRequestAsync(string url, string method,
-            string payload = null, ApiVersion api = ApiVersion.V3, string accessToken = null)
+            string payload = null, ApiVersion api = ApiVersion.Latest, string accessToken = null)
         {
             var request = new HttpRequestMessage
             {

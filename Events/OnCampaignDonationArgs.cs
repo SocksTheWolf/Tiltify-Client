@@ -5,6 +5,6 @@ namespace Tiltify.Events
 {
     public class OnCampaignDonationArgs : EventArgs
     {
-        public DonationInformation Donation;
+        public WebDonationInformation Donation;
     }
 }

@@ -64,14 +64,18 @@ namespace Tiltify
             {
                 url = resource == null ? overrideUrl : $"{overrideUrl}{resource}";
             }
+
+            // Check to see if we have a ? and if not, we'll add the ?
+            if (!url.Contains('?'))
+            {
+                url += "?";
+            }
+
             if (getParams != null)
             {
                 for (var i = 0; i < getParams.Count; i++)
                 {
-                    if (i == 0)
-                        url += $"?{getParams[i].Key}={Uri.EscapeDataString(getParams[i].Value)}";
-                    else
-                        url += $"&{getParams[i].Key}={Uri.EscapeDataString(getParams[i].Value)}";
+                    url += $"&{getParams[i].Key}={Uri.EscapeDataString(getParams[i].Value)}";
                 }
             }
             return url;

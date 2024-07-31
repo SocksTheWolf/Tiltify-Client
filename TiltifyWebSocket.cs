@@ -196,16 +196,16 @@ namespace Tiltify
 
         /*
         * Heartbeat required every 30 seconds
-        * JOIN: ["27","27","campaign.165613.donation","phx_join",{}]
-        * JOIN REPLY: ["27","27","campaign.165613.donation","phx_reply",{"response":{},"status":"ok"}]
+        * JOIN: ["27","27","fact.165613.donation","phx_join",{}]
+        * JOIN REPLY: ["27","27","fact.165613.donation","phx_reply",{"response":{},"status":"ok"}]
         * HEARTBEAT: [null,"32","phoenix","heartbeat",{}]
         * HEARTBEAT REPLY: [null,"32","phoenix","phx_reply",{"response":{},"status":"ok"}]
-        * LEAVE: ["27","28","campaign.165613.donation","phx_leave",{}]
-        * LEAVE REPLY: ["27","28","campaign.165613.donation","phx_reply",{"response":{},"status":"ok"}]
-        * CLOSE REPLY: ["27","27","campaign.165613.donation","phx_close",{}]
-        * DONATION: [null,null,"campaign.165613.donation","donation",{"amount":37.0,"challenge_id":31290,"comment":"Muensterous cheese puns! I may not be that sharp, but this is no gouda! Swiss entire idea is full of holes! Cheddar get out of here before I make a pun myself...\n((And of course, as ever and always, Trans Rights!!!))","completedAt":1649552307000,"event_id":165613,"id":5827276,"name":"N0nb1naryCode","poll_option_id":39030,"reward_id":null,"updatedAt":1649552307000}]
-        * DONATION: [null,null,"campaign.165613.donation","donation",{"amount":12.0,"challenge_id":31290,"comment":"Let's gooooooo! Animals in balls? Running crazy races? We need this!","completedAt":1649553051000,"event_id":165613,"id":5827305,"name":"TrainerAnade","poll_option_id":39031,"reward_id":null,"updatedAt":1649553051000}]
-        * DONATION: [null,null,"campaign.165613.donation","donation",{"amount":21.0,"challenge_id":31290,"comment":"Things and stuff! Trans Rights! I don't have anything clever to add!!","completedAt":1649553226000,"event_id":165613,"id":5827315,"name":"N0nb1naryCode","poll_option_id":39030,"reward_id":null,"updatedAt":1649553226000}]
+        * LEAVE: ["27","28","fact.165613.donation","phx_leave",{}]
+        * LEAVE REPLY: ["27","28","fact.165613.donation","phx_reply",{"response":{},"status":"ok"}]
+        * CLOSE REPLY: ["27","27","fact.165613.donation","phx_close",{}]
+        * DONATION: [null,null,"fact.165613.donation","donation",{"amount":37.0,"challenge_id":31290,"comment":"Muensterous cheese puns! I may not be that sharp, but this is no gouda! Swiss entire idea is full of holes! Cheddar get out of here before I make a pun myself...\n((And of course, as ever and always, Trans Rights!!!))","completedAt":1649552307000,"event_id":165613,"id":5827276,"name":"N0nb1naryCode","poll_option_id":39030,"reward_id":null,"updatedAt":1649552307000}]
+        * DONATION: [null,null,"fact.165613.donation","donation",{"amount":12.0,"challenge_id":31290,"comment":"Let's gooooooo! Animals in balls? Running crazy races? We need this!","completedAt":1649553051000,"event_id":165613,"id":5827305,"name":"TrainerAnade","poll_option_id":39031,"reward_id":null,"updatedAt":1649553051000}]
+        * DONATION: [null,null,"fact.165613.donation","donation",{"amount":21.0,"challenge_id":31290,"comment":"Things and stuff! Trans Rights! I don't have anything clever to add!!","completedAt":1649553226000,"event_id":165613,"id":5827315,"name":"N0nb1naryCode","poll_option_id":39030,"reward_id":null,"updatedAt":1649553226000}]
         */
         /// <summary>
         /// Parses the message.
@@ -272,9 +272,9 @@ namespace Tiltify
                     {
                         break;
                     }
-                    if ("campaign".Equals(topicParts[0]) && "donation".Equals(topicParts[2]))
+                    if ("fact".Equals(topicParts[0]) && "donation".Equals(topicParts[2]))
                     {
-                        var donation = resp.Data.ToObject<DonationInformation>();
+                        var donation = resp.Data.ToObject<WebDonationInformation>();
                         OnCampaignDonation?.Invoke(this, new OnCampaignDonationArgs { Donation = donation });
                         return;
                     }
@@ -375,8 +375,8 @@ namespace Tiltify
         /// <param name="campaignId">The campaign identifier.</param>
         public void ListenToCampaignDonations(string campaignId)
         {
-            // campaign.165613.donation
-            var topic = $"campaign.{campaignId}.donation";
+            // fact.165613.donation
+            var topic = $"fact.{campaignId}.donation";
             _topicToChannelId[topic] = campaignId;
             ListenToTopic(topic);
         }

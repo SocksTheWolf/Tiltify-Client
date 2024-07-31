@@ -175,8 +175,6 @@ namespace Tiltify
                             break;
                         case WebSocketMessageType.Binary:
                             break;
-                        default:
-                            throw new ArgumentOutOfRangeException();
                     }
 
                     message = "";

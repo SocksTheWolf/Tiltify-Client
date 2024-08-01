@@ -6,6 +6,7 @@ namespace Tiltify
         OAuth,
         Public,
         Private,
+        PublicPrivate,
     }
 
     public static class ApiAccessPath
@@ -19,11 +20,11 @@ namespace Tiltify
             switch (level)
             {
                 case ApiAccessLevel.OAuth:
-                    return "/";
+                    return "";
                 case ApiAccessLevel.Public:
-                    return "/public";
+                    return "/api/public";
                 case ApiAccessLevel.Private:
-                    return "/private";
+                    return "/api/private";
                 case ApiAccessLevel.None:
                 default:
                     return "/";

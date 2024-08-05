@@ -19,15 +19,14 @@ namespace Tiltify
 
             switch (level)
             {
-                case ApiAccessLevel.OAuth:
-                    return "";
                 case ApiAccessLevel.Public:
                     return "/api/public";
                 case ApiAccessLevel.Private:
                     return "/api/private";
+                case ApiAccessLevel.OAuth:
                 case ApiAccessLevel.None:
                 default:
-                    return "/";
+                    return "";
             }  
         }
     }

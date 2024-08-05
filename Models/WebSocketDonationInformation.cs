@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 namespace Tiltify.Models
 {
     //{ "amount":1.0,"challenge_id":null,"comment":null,"completedAt":1650338036000,"event_id":165720,"id":5842193,"name":"Anonymous","poll_option_id":null,"reward_id":null,"updatedAt":1650338036000}
-    public class WebDonationInformation
+    public class WebSocketDonationInformation
     {
         [JsonProperty(PropertyName = "id")]
         public int Id { get; protected set; }

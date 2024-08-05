@@ -274,7 +274,7 @@ namespace Tiltify
                     }
                     if ("fact".Equals(topicParts[0]) && "donation".Equals(topicParts[2]))
                     {
-                        var donation = resp.Data.ToObject<WebDonationInformation>();
+                        var donation = resp.Data.ToObject<WebSocketDonationInformation>();
                         OnCampaignDonation?.Invoke(this, new OnCampaignDonationArgs { Donation = donation });
                         return;
                     }

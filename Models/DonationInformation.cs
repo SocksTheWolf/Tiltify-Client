@@ -16,7 +16,7 @@ namespace Tiltify.Models
     {
         [JsonProperty(PropertyName = "id")]
         public string Id { get; protected set; }
-
+#nullable enable
         [JsonProperty(PropertyName = "campaign_id")]
         public string? CampaignId { get; protected set; }
 
@@ -25,7 +25,7 @@ namespace Tiltify.Models
 
         [JsonProperty(PropertyName = "amount")]
         public Money? Amount { get; protected set; }
-
+#nullable disable
         [JsonProperty(PropertyName = "donor_name")]
         public string Name { get; protected set; }
 

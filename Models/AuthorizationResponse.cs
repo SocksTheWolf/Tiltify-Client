@@ -12,10 +12,10 @@ namespace Tiltify.Models
 
         [JsonProperty(PropertyName = "expires_in")]
         public int Expiration;
-
+#nullable enable
         [JsonProperty(PropertyName = "refresh_token")]
         public string? RefreshToken;
-
+#nullable disable
         [JsonProperty(PropertyName = "scope")]
         public string Scope;
 

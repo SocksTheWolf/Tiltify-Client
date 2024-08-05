@@ -15,7 +15,7 @@ namespace Tiltify.Models
 #nullable enable
         [JsonProperty(PropertyName = "refresh_token")]
         public string? RefreshToken;
-#nullable disable
+#nullable restore
         [JsonProperty(PropertyName = "scope")]
         public string Scope;
 

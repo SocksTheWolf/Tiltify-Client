@@ -25,7 +25,7 @@ namespace Tiltify.Models
 
         [JsonProperty(PropertyName = "amount")]
         public Money? Amount { get; protected set; }
-#nullable disable
+#nullable restore
         [JsonProperty(PropertyName = "donor_name")]
         public string Name { get; protected set; }
 

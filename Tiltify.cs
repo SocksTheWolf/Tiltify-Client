@@ -10,6 +10,7 @@ namespace Tiltify
 
         public Auth Auth { get; }
         public Campaigns Campaigns { get; }
+        public TeamCampaigns TeamCampaigns { get; }
         public Users Users { get; }
 
         /// <summary>
@@ -28,6 +29,7 @@ namespace Tiltify
 
             Auth = new Auth(settings, rateLimiter, http);
             Campaigns = new Campaigns(settings, rateLimiter, http);
+            TeamCampaigns = new TeamCampaigns(settings, rateLimiter, http);
             Users = new Users(settings, rateLimiter, http);
         }
     }
